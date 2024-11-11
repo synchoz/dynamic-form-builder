@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<script defer src="./bundle.js"></script></head>
+<script defer src="runtime.js"></script><script defer src="main.js"></script></head>
 <body>
-    <div>Test</div>
-    <div id="app"></div> 
+    <div class="headerText">Welcome to the dynamic form generator!</div>
+    <div class="container">
+        <button onclick="showSchemasList()" id="fetchList" class="btn btn-green">Fetch Schemas List</button>
+        <div id="resultList" style="display: none;">
+            <label for="schemasListSele">Select type of form:</label>
+            <select id="schemasListSele"></select>
+            <button onclick="createFormFromSchemaSelection()" class="btn btn-blue">Generate Form</button>
+        </div>
+    </div>
+    <div id="formDiv" style="display: none;" action="https://httpbin.org/post" method="post" target="_self">
+        <form id="newDynamicForm"></form>
+        <div class="submitDiv">
+            <button type="submit" class="btn btn-green" form="newDynamicForm">Submit</button>
+        </div>
+    </div>
+    <div class="successMessage" id="successMessage" style="display: none;">
+        Your form has been successfully submitted!
+    </div>
 </body>
 </html>
